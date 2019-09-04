@@ -1,0 +1,292 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Search {{name}} {% endblock title %}
+
+
+{% block head %}
+<style>
+    #showcase {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        height: 400px;
+        width: 100%;
+        color: snow;
+        background: url("https://images.pexels.com/photos/323776/pexels-photo-323776.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+        
+    }
+    
+     .home-search {
+        position: relative;
+        border-radius: 10px;
+        height: 350px;
+    }
+    
+    
+    .home-search .overlay {
+        height: 100%;
+        width: 100%;
+        top:0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: 2;
+        background:rgba(0, 0, 0, .5);
+    
+    }
+    
+    #search-btn {
+        background: rgb(58, 197, 127);
+    }
+
+    .listing-preview a {
+        position: relative;
+        background: rgb(60, 75, 107);
+        color: snow;
+        text-decoration: none;
+    }
+    .listing-preview a:hover {
+        background: rgb(41, 51, 73);
+        transition: .2s;
+        color: snow;
+    }
+    
+    .listing-preview .card-body .row .col-md-6,.col-6,.col-12{
+        color: rgb(58, 197, 127);
+        font-weight: 450;
+        font-size: 18px;
+        height: auto;
+        
+    }
+    
+    .listing-preview .badge{
+        background: rgb(58, 197, 127);
+    }
+</style>
+{% endblock head %}
+
+
+{% block content %}
+
+<!-- showcase with a search form -->
+<section id="showcase">
+    <div class="container text-center">
+        <div class="row">
+            <div class="home-search col-md-11 mx-auto mt-4 col-sm-12">
+                <div class="overlay p-5">
+                    <h2 class="display-4"> Property Searching Just Got Easy. </h2>
+                    <small class="lead"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis ea,
+                        quibusdam sint i tenetur at! </small>
+
+                    <!-- search form -->
+                    <div class="search">
+                        <form action="">
+                            <!-- form-row 1-->
+                            <div class="form-row mt-3">
+                                <div class="col-md-4 ">
+                                    <label class="sr-only">Keywords</label>
+                                    <input type="text" name="keywords" class="form-control"
+                                        placeholder="Keyword (Pool, Garage, etc)" value="{{values.keywords}}">
+                                </div>
+
+                                <div class="col-md-4 ">
+                                    <label class="sr-only">City</label>
+                                    <input type="text" name="city" class="form-control" placeholder="City" value="{{values.city}}">
+                                </div>
+
+                                <div class="col-md-4 ">
+                                    <label for="" class="sr-only">State</label>
+                                    <select name="district" id="" class="form-control">
+                                        <option value="{{values.district}}" selected="True" disabled="disabled"> District </option>
+                                        <option value="achham">Achham</option>
+                                        <option value="arghakhanchi">Arghakhanchi</option>
+                                        <option value="baglung">Baglung</option>
+                                        <option value="baitadi">Baitadi</option>
+                                        <option value="bajhang">Bajhang</option>
+                                        <option value="bajura">Bajura</option>
+                                        <option value="banke">Banke</option>
+                                        <option value="bara">Bara</option>
+                                        <option value="bardiya">Bardiya</option>
+                                        <option value="bhaktapur">Bhaktapur</option>
+                                        <option value="bhojpur">Bhojpur</option>
+                                        <option value="chitwan">Chitwan</option>
+                                        <option value="dadeldhura">Dadeldhura</option>
+                                        <option value="dailekh">Dailekh</option>
+                                        <option value="dang">Dang</option>
+                                        <option value="darchula">Darchula</option>
+                                        <option value="dhading">Dhading</option>
+                                        <option value="dhankutta">Dhankutta</option>
+                                        <option value="dhanusa">Dhanusa</option>
+                                        <option value="dolkha">Dolkha</option>
+                                        <option value="dolpa">Dolpa</option>
+                                        <option value="doti">Doti</option>
+                                        <option value="gorkha">Gorkha</option>
+                                        <option value="gulmi">Gulmi</option>
+                                        <option value="humla">Humla</option>
+                                        <option value="ilam">Ilam</option>
+                                        <option value="jajarkot">Jajarkot</option>
+                                        <option value="jhapa">Jhapa</option>
+                                        <option value="jumla">Jumla</option>
+                                        <option value="kailali">Kailali</option>
+                                        <option value="kalikot">Kalikot</option>
+                                        <option value="kanchanpur">Kanchanpur</option>
+                                        <option value="kapilvastu">Kapilvastu</option>
+                                        <option value="kaski">Kaski</option>
+                                        <option value="kathmandu">Kathmandu</option>
+                                        <option value="kavreplanchauk">Kavreplanchauk</option>
+                                        <option value="khotang">Khotang</option>
+                                        <option value="lalitpur">Lalitpur</option>
+                                        <option value="lamjung">Lamjung</option>
+                                        <option value="mahottari">Mahottari</option>
+                                        <option value="makwanpur">Makwanpur</option>
+                                        <option value="manag">Manag</option>
+                                        <option value="morang">Morang</option>
+                                        <option value="mugu">Mugu</option>
+                                        <option value="mustang">Mustang</option>
+                                        <option value="myagdi">Myagdi</option>
+                                        <option value="nawalpur">Nawalpur</option>
+                                        <option value="nuwakot">Nuwakot</option>
+                                        <option value="okhaldunga">Okhaldunga</option>
+                                        <option value="palpa">Palpa</option>
+                                        <option value="panchthar">Panchthar</option>
+                                        <option value="parasi">Parasi</option>
+                                        <option value="parsa">Parsa</option>
+                                        <option value="parwat">Parwat</option>
+                                        <option value="pyuthan">Pyuthan</option>
+                                        <option value="ramechhap">Ramechhap</option>
+                                        <option value="rasuwa">Rasuwa</option>
+                                        <option value="rauthat">Rauthat</option>
+                                        <option value="rolpa">Rolpa</option>
+                                        <option value="rukum-paschim">Rukum Paschim</option>
+                                        <option value="rukum-purba">Rukum Purba</option>
+                                        <option value="rupandehi">Rupandehi</option>
+                                        <option value="salyan">Salyan</option>
+                                        <option value="sankhuwasabha">Sankhuwasabha</option>
+                                        <option value="saptari">Saptari</option>
+                                        <option value="sarlahi">Sarlahi</option>
+                                        <option value="sindhuli">Sindhuli</option>
+                                        <option value="sindhupalchauk">Sindhupalchauk</option>
+                                        <option value="siraha">Siraha</option>
+                                        <option value="solukhumbu">Solukhumbu</option>
+                                        <option value="sunsari">Sunsari</option>
+                                        <option value="surkhet">Surkhet</option>
+                                        <option value="syangja">Syangja</option>
+                                        <option value="tanahun">Tanahun</option>
+                                        <option value="taplejung">Taplejung</option>
+                                        <option value="terhathum">Terhathum</option>
+                                        <option value="udaypur">Udaypur</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <!--form row 2-->
+                            <div class="form-row mt-3">
+                                <div class="col-md-6">
+                                    <label for="" class="sr-only">Bedrooms</label>
+                                    <select name="bedrooms" id="" class="form-control">
+                                        <option value="{{values.bedrooms}}" selected="True" disabled> Bedrooms </option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="" class="sr-only">Price</label>
+                                    <input type="text" name="price" value="{{values.price}}"" class="form-control" placeholder="Price">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn  btn-block btn-rounded mt-4 text-white"
+                                id="search-btn">Search <i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Show the search results -->
+<div class="container">
+    {% if homes %}
+        <h2 class="text-center"> Search Results </h2>
+        <div class="row">
+            {% for home in homes %}
+            <div class="col-md-4 col-lg-4 mb-4">
+                <div class="card listing-preview">
+                    <img class="card-img-top"
+                        src="{{home.photo_main.url}}"
+                        alt="" width="100%" height="200">
+                    <div class="card-img-overlay">
+                        <h2>
+                            <span class="badge text-white float-left">${{home.price}}</span>
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="listing-heading text-center">
+                            <h4 class="text-secondary"> {{home.title}} </h4>
+                            <p><i class="fa fa-map-marker"></i> {{home.address}}</p>
+                        </div>
+                        <hr>
+                        <div class="row py-2 text-secondary">
+                            <div class="col-md-6">
+                                <i class="fa fa-th-large"></i> Sqft: {{home.sqft}}
+                            </div>
+                            <div class="col-md-6">
+                                <i class="fa fa-car"></i> Garage: {{home.garage}}
+                            </div>
+                        </div>
+
+                        <div class="row py-2 text-secondary">
+                            <div class="col-md-6">
+                                <i class="fa fa-bed"></i> Bedrooms: {{home.bedroom}}
+                            </div>
+                            <div class="col-md-6">
+                                <i class="fa fa-bathtub"></i> Bathrooms: {{home.bathroom}}
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row text-secondary">
+                            <div class="col-12"><i class="fa fa-user"></i> {{home.realtor}}</div> <br>
+                        </div>
+
+                        <div class="row text-secondary pb-2">
+                            <div class="col-12"><i class="fa fa-clock-o"></i> {{home.list_date |date}}</div>
+                        </div>
+                        <hr>
+
+                        <a href="{{home.get_absolute_url}}" class="btn btn-block"> More Info </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+
+            {% else %}
+
+            {% if values.district %}
+            <h3 class="text-danger display-4 text-center"> No Houses Found in {{values.district | capfirst}} </h3>
+
+            {% else %}
+
+            <h3 class="text-danger display-4 text-center"> No Houses Found  </h3>
+
+            {% endif %}
+
+
+            {% endif %}
+</div>
+
+
+{% endblock content %}

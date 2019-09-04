@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/myApp/about.css' %}">
+{% endblock head %}
+
+{% block title %} About Chhey {% endblock title %}
+
+{% block content %}
+
+<section id="about-head" class="text-white">
+    <div class="overlay-3">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12 mt-5">
+                    <h1 class="display-4">About BT Real Estate</h1>
+                    <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Breadcrumb -->
+<section id="bc" class="mt-3">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{% url 'home' %}" class="text-dark">
+                        <i class="fa fa-home text-dark"></i> Home</a>
+                </li>
+                <li class="breadcrumb-item active"> About</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<section id="about" class="py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>We Search For The Perfect Home</h2>
+                <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!</p>
+                <img src="https://images.pexels.com/photos/2631746/pexels-photo-2631746.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" class="" width="700" height="300">
+                <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis esse officia
+                    repudiandae ad saepe ex, amet
+                    neque quod accusamus rem quia magnam magni dolorum facilis ullam minima perferendis? Exercitationem
+                    at quaerat
+                    commodi id libero eveniet harum perferendis laborum molestias quia.</p>
+            </div>
+            {% if mvp_realtors %}
+            {% for realtor in mvp_realtors %}
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="{{realtor.photo.url}}" height="330" alt="Seller of the month">
+                    <div class="card-body">
+                        <h5 class="card-title">Seller Of The Month</h5>
+                        <h6 class="text-secondary">{{realtor.name}}</h6>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis nesciunt
+                            amet, illo itaque similique repellat.
+                            content.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- Work -->
+<section id="work" class="bg-dark text-white text-center py-2">
+    <h2 class="display-4">We Work For You</h2>
+    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem velit aperiam, unde aliquid at similique!</h4>
+    <hr>
+    <a href="{% url 'listing' %}" class="btn btn-secondary text-white btn-lg">View Our Featured Listings</a>
+</section>
+
+<!-- Team -->
+<section id="team" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-3" style="color:rgb(47, 153, 100);"> Our Team </h2>
+        <div class="row text-center">
+            {% if realtors %}
+            {% for realtor in realtors %}
+            <div class="col-md-4">
+                <img src="{{realtor.photo.url}}" alt="" class="rounded-circle mb-3" width="170" height="170">
+                <h4>Kyle Brown</h4>
+                <p class="text-success">
+                    <i class="fa fa-award text-success mb-3"></i>{{realtor.name}}</p>
+                <hr>
+                <p>
+                    <i class="fa fa-phone"></i> {{realtor.phone}} </p>
+                <p>
+                    <i class="fa fa-envelope-open"></i> {{realtor.email}}</p>
+            </div>
+            {% endfor %}
+            {% endif %}
+
+        
+        </div>
+    </div>
+</section>
+
+
+<script src="{% static 'js/myApp/about.js' %}"></script>
+{% endblock content %}

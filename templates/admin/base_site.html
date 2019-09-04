@@ -1,0 +1,63 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+
+{% block extrahead %}
+
+<style>
+    #header {
+        background: rgb(60, 75, 107);
+        height: 50px;
+        color: white;
+    }
+    #branding h1 {
+        color: white;
+    }
+
+    a:link, a:visited {
+        color: rgb(60, 75, 107)''
+    }
+
+    div.breadcrumbs {
+        background: #30caa0;
+        color: rgb(60, 75, 107);
+        font-weight: 500;
+    }
+
+    div.breadcrumbs a {
+        color: snow;
+        
+    }
+
+    .content-main table caption.section {
+        background: #30caa0;
+    }
+
+    .module h2, .module caption, .inline-group h2 {
+        background: #30caa0;
+    }
+    .button, input[type=submit], input[type=button], .submit-row input, a.button {
+        background: #30caa0;
+    }
+
+    #changelist #toolbar form input[type="submit"] {
+        background: #30caa0;
+        color: snow;
+        border: none;
+    }
+
+    #changelist .actions .button {
+        background: #30caa0;
+        color: snow;
+        border: none;
+    }
+
+</style>
+
+{% endblock extrahead %}
+
+{% block branding %}
+    <h1 id="head">
+        <img src="{% static 'images/logo.png'%}" alt="" class="brand_img" height="50" width="50"> Chhey Admin
+    </h1>
+{% endblock branding %}
+

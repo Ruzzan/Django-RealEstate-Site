@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Featured Listing {% endblock title %}
+
+{% block head %}
+
+<style>
+    #about-head {
+        background: url('https://images.pexels.com/photos/534182/pexels-photo-534182.jpeg?cs=srgb&dl=architecture-balcony-building-534182.jpg&fm=jpg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        height: 200px;
+        width: 100%;
+        color: snow;
+    }
+
+    #about-head .container-fluid {
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 999;
+        width: 100%;
+        height: 100%;
+        opacity: 0.76;
+        background: rgb(47, 153, 100);
+    }
+</style>
+
+{% endblock head %}
+
+{% block content %}
+
+<section id="about-head" class="text-white">
+
+    <div class="container-fluid">
+        <div class="row text-center">
+            <div class="col-md-12 mt-5">
+                <h1 class="display-4 text-white">About BT Real Estate</h1>
+                <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!</p>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- Breadcrumb -->
+<section id="bc" class="mt-3">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{% url 'home' %}" class="text-dark">
+                        <i class="fa fa-home text-dark"></i> Home</a>
+                </li>
+                <li class="breadcrumb-item active"> About</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<!-- second section-->
+<section id="latest-listing" class="py-3">
+    <div class="container text-center">
+        {% if homes %}
+        <h2> Latest Listings </h2>
+        <div class="row">
+            {% for home in homes %}
+            <div class="col-md-4 col-lg-4 mb-4">
+                <div class="card listing-preview">
+                    <img class="card-img-top"
+                        src="{{home.photo_main.url}}"
+                        alt="" width="100%" height="200">
+                    <div class="card-img-overlay">
+                        <h2>
+                            <span class="badge text-white float-left">${{home.price}}</span>
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="listing-heading text-center">
+                            <h4 class="text-secondary"> {{home.title}} </h4>
+                            <p><i class="fa fa-map-marker"></i> Address: {{home.address}}</p>
+                        </div>
+                        <hr>
+                        <div class="row py-2 text-secondary">
+                            <div class="col-md-6">
+                                <i class="fa fa-th-large"></i> Sqft: {{home.sqft}}
+                            </div>
+                            <div class="col-md-6">
+                                <i class="fa fa-car"></i> Garage: {{home.garage}}
+                            </div>
+                        </div>
+
+                        <div class="row py-2 text-secondary">
+                            <div class="col-md-6">
+                                <i class="fa fa-bed"></i> Bedrooms: {{home.bedroom}}
+                            </div>
+                            <div class="col-md-6">
+                                <i class="fa fa-bathtub"></i> Bathrooms: {{home.bathroom}}
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row text-secondary">
+                            <div class="col-6"><i class="fa fa-user"></i> {{home.realtor}}</div> <br>
+                            <div class="col-6"><i class="fa fa-clock-o"></i> {{home.list_date}}</div>
+                        </div>
+
+                
+                        <hr>
+
+                        <a href="{{home.get_absolute_url}}" class="btn btn-block"> More Info </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+
+            {% else %}
+
+            <h3 class="text-danger display-4"> No Houses Listed </h3>
+
+
+            {% endif %}
+
+
+
+            
+    <!-- pagination -->
+    <div class="container">
+        {% if homes %}
+        <ul class="pagination">
+            {# if it has previous page #}
+            {% if homes.has_previous %}
+            <li class="page-item">
+                <a href="?page{{homes.previous_page_number}}" class="page-link">&laquo;</a>
+            </li>
+            {% endif %}
+
+            <!-- looping for pagination-->
+            {% for p in page_range %}
+            {% if homes.number == p %} 
+            <li class="page-item">
+            <a href="?page={{p}}" class="page-link" style="background:rgb(47, 153, 100);color:seashell;" >{{p}}</a>
+            </li>
+
+            {% else %}
+
+            <li class="page-item">
+            <a href="?page={{p}}" class="page-link" >{{p}}</a>
+            </li>
+
+            {% endif %}
+            {% endfor %}
+
+        {# pagination to go to next page #}
+        {% if homes.has_next %}
+        <li class="page-item"> <a href="?page={{ homes.next_page_number }}" class="page-link"> &raquo; </a> </li>
+        {% endif %}
+        </ul>
+        {% endif %}
+    </div>
+</section>
+
+
+{% endblock content %}

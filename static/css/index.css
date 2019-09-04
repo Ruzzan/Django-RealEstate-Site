@@ -1,0 +1,168 @@
+#topheader a {
+    text-decoration: none;
+    margin:0 10px;
+}
+
+nav {
+    opacity: 0.95;
+
+}
+
+.navbar-nav .nav-item .nav-link  {
+    color: rgba(202, 192, 192, 0.664);
+    font-size: 20px;
+    margin: 0 6px;
+}
+.navbar-nav .nav-item .nav-link:hover {
+    color:  rgb(58, 197, 127);;
+    transition: 0.1s;
+}
+
+
+#showcase {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 550px;
+    width: 100%;
+    color: snow;
+    
+}
+
+
+
+
+
+ .home-search {
+    position: relative;
+    border-radius: 10px;
+    height: 400px;
+}
+
+
+.home-search .overlay {
+    height: 100%;
+    width: 100%;
+    top:0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    background:rgba(0, 0, 0, .5);
+
+}
+
+#search-btn {
+    background: rgb(58, 197, 127);
+}
+
+
+/* section 2*/
+#latest-listing {
+    background: -webkit-linear-gradient(to top, #f9fbfd 0%, rgb(255, 251, 251) 100%);
+}
+
+#btn-more-info {
+    background: rgb(60, 75, 107);
+    color: snow;
+    text-decoration: none;
+}
+
+#latest-listing a {
+    position: relative;
+    background: rgb(60, 75, 107);
+    color: snow;
+    text-decoration: none;
+}
+#latest-listing a:hover {
+    background: rgb(41, 51, 73);
+    transition: .2s;
+}
+
+#latest-listing .card-body .row .col-md-6,.col-6, .col{
+    color: rgb(58, 197, 127);
+    font-weight: 450;
+    font-size: 18px;
+}
+.listing-heading {
+    color: rgb(58, 197, 127);
+}
+
+#latest-listing .badge{
+    background: rgb(58, 197, 127);
+}
+
+/* section 3 */
+#info-section {
+    background: url('https://images.pexels.com/photos/2662653/pexels-photo-2662653.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 300px;
+    width: 100%;
+    color: snow;
+}
+
+#info-section .overlay-2 {
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 999;
+    width: 100%;
+    height:100%;
+    opacity: 0.85;
+    background: rgba(50, 170, 110);
+}
+
+
+#main-footer {
+    background: rgb(60, 75, 107) !important;
+}
+
+
+
+/* MOBILE DESIGN HERE */
+@media (max-width:678px) {
+    #showcase {
+        height: 400px;
+    }
+
+    #top-header {
+        height: 90px;
+    }
+    #top-header .container {
+        margin-top: -15px;
+    }
+    .home-search {
+        display: block;
+        position: absolute;
+    }
+    .home-search h2 {
+        font-size: 22px;
+        font-weight: 500;
+    }
+    
+    .home-search small {
+        font-size: 16px;
+    }
+    
+    .home-search .overlay {
+        height: auto;
+        margin-top: -20px;
+    }
+    
+    .home-search input,select {
+        margin-top: 5px;
+    }
+    #info-section {
+        height: auto;
+    }
+
+    .listing-preview {
+        overflow: scroll;
+        width: 30px !important;
+    }
+}

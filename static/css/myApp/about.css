@@ -1,0 +1,22 @@
+#about-head {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 200px;
+    width: 100%;
+    color: snow;
+}
+
+#about-head .overlay-3 {
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 999;
+    width: 100%;
+    height:100%;
+    opacity: 0.76;
+    background: rgb(47, 153, 100);
+}
+
